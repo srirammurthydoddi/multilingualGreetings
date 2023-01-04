@@ -1,12 +1,12 @@
 import './index.css'
 
 const GreetingItem = props => {
-  const {greetingDetails, isActive, setActiveGreetingId} = props
-  const {buttonText, id} = greetingDetails
-  const greetingClassName = isActive ? `greeting active` : `greeting`
+  const {languageDetails, isActive, setActiveLanguageId} = props
+  const {buttonText, id} = languageDetails
+  const greetingClassName = isActive ? `greeting active` : `greeting in-active`
 
   const onClickButton = () => {
-    setActiveGreetingId(id)
+    setActiveLanguageId(id)
   }
 
   return (

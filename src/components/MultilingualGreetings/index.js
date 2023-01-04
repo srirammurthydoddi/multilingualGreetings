@@ -4,32 +4,29 @@ import GreetingItem from '../GreetingItem'
 
 import './index.css'
 
-const {languageGreetingsList} = this.props
-
 class MultilingualGreetings extends Component {
   state = {
-    activeGreetingId: languageGreetingsList[0].id,
+    activeLanguageId: 0,
   }
 
-  setActiveGreetingId = id => {
-    this.setState({
-      activeGreetingId: id,
-    })
+  setActiveLanguageId = Id => {
+    this.setState({activeLanguageId: Id})
   }
 
   render() {
-    const {activeGreetingId} = this.state
-    const {imageUrl, imageAltText} = languageGreetingsList[activeGreetingId]
+    const {languageGreetingsList} = this.props
+    const {activeLanguageId} = this.state
+    const {imageUrl, imageAltText} = languageGreetingsList[activeLanguageId]
     return (
       <div className="app-container">
         <h1 className="heading">Multilingual Greetings</h1>
         <ul className="greetings-list">
           {languageGreetingsList.map(eachLanguage => (
             <GreetingItem
-              key={eachLanguage.id}
-              greetingDetails={eachLanguage}
-              isActive={activeGreetingId === eachLanguage.id}
-              setActiveGreetingId={this.setActiveGreetingId}
+              key={eachLanguage.Id}
+              languageDetails={eachLanguage}
+              setActiveLanguageId={this.setActiveLanguageId}
+              isActive={activeLanguageId === eachLanguage.Id}
             />
           ))}
         </ul>

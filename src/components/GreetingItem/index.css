@@ -9,12 +9,16 @@
   padding-right: 40px;
   padding-top: 15px;
   padding-bottom: 15px;
-  color: #ffffff;
-  border: 1px #db1c48;
+  border: 1px #db1c48 solid;
   border-radius: 20px;
   margin-right: 10px;
 }
 
 .active {
   background-color: #db1c48;
+  color: #ffffff;
+}
+.in-active {
+  color: #db1c48;
+  background-color: #ffffff;
 }
