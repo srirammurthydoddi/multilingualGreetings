@@ -39,8 +39,18 @@ class MultilingualGreetings extends Component {
     this.setState({activeLanguageId: Id})
   }
 
+  getActiveTabImages = searchedImage => {
+    const {activeLanguageId} = this.state
+    const filteredImage = searchedImage.filter(
+      eachSearchedImage => eachSearchedImage.buttonText === activeLanguageId,
+    )
+
+    return filteredImage
+  }
+
   render() {
     const {activeLanguageId} = this.state
+    const filteredImage = this.getActiveTabImages()
     return (
       <div className="app-container">
         <h1 className="heading">Multilingual Greetings</h1>
@@ -55,11 +65,8 @@ class MultilingualGreetings extends Component {
           ))}
         </ul>
         <ul className="images-list">
-          {languageGreetingsList.map(eachImage => (
-            <ImageItem
-              key={eachImage.activeLanguageId}
-              imageDetails={eachImage}
-            />
+          {filteredImage.map(eachImage => (
+            <ImageItem key={eachImage.Id} imageDetails={eachImage} />
           ))}
         </ul>
       </div>
