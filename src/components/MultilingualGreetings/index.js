@@ -6,7 +6,7 @@ import ImageItem from '../ImageItem'
 
 import './index.css'
 
-const languageGreetingsList = [
+const initialLanguageGreetingsList = [
   {
     id: 'bfdf40eb-eec9-4a66-a493-752fe689f0d0',
     imageUrl:
@@ -32,25 +32,27 @@ const languageGreetingsList = [
 
 class MultilingualGreetings extends Component {
   state = {
-    activeLanguageId: languageGreetingsList[0].id,
+    languageGreetingsList: initialLanguageGreetingsList,
+    activeLanguageId: initialLanguageGreetingsList[0].id,
   }
 
   setActiveLanguageId = Id => {
     this.setState({activeLanguageId: Id})
   }
 
-  getActiveTabImages = searchedImage => {
+  getActiveTabImages = () => {
     const {activeLanguageId} = this.state
-    const filteredImage = searchedImage.filter(
+    const {languageGreetingsList} = this.state
+    const filteredList = languageGreetingsList.filter(
       eachSearchedImage => eachSearchedImage.buttonText === activeLanguageId,
     )
 
-    return filteredImage
+    return filteredList
   }
 
   render() {
-    const {activeLanguageId} = this.state
-    const filteredImage = this.getActiveTabImages()
+    const {activeLanguageId, languageGreetingsList} = this.state
+    const filteredList = this.getActiveTabImages()
     return (
       <div className="app-container">
         <h1 className="heading">Multilingual Greetings</h1>
@@ -65,7 +67,7 @@ class MultilingualGreetings extends Component {
           ))}
         </ul>
         <ul className="images-list">
-          {filteredImage.map(eachImage => (
+          {filteredList.map(eachImage => (
             <ImageItem key={eachImage.Id} imageDetails={eachImage} />
           ))}
         </ul>
