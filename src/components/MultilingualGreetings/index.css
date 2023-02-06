@@ -16,11 +16,8 @@
 .greetings-list {
   display: flex;
   justify-content: space-between;
-  list-style-type: none;
   margin-top: 20px;
-  padding: 0px;
 }
-.image {
-  height: 300px;
-  width: 300px;
+.images-list {
+  display: flex;
 }

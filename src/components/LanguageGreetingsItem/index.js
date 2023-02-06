@@ -1,9 +1,9 @@
 import './index.css'
 
-const GreetingItem = props => {
+const LanguageGreetingsItem = props => {
   const {languageDetails, isActive, setActiveLanguageId} = props
   const {buttonText, id} = languageDetails
-  const greetingClassName = isActive ? `greeting active` : `greeting in-active`
+  const greetingClassName = isActive ? 'button active' : 'button'
 
   const onClickButton = () => {
     setActiveLanguageId(id)
@@ -13,8 +13,8 @@ const GreetingItem = props => {
     <li className="greeting-list-item">
       <button
         type="button"
-        className={greetingClassName}
         onClick={onClickButton}
+        className={greetingClassName}
       >
         {buttonText}
       </button>
@@ -22,4 +22,4 @@ const GreetingItem = props => {
   )
 }
 
-export default GreetingItem
+export default LanguageGreetingsItem

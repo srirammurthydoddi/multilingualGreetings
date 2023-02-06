@@ -1,12 +1,12 @@
 import {Component} from 'react'
 
-import GreetingItem from '../GreetingItem'
+import LanguageGreetingsItem from '../LanguageGreetingsItem'
 
 import ImageItem from '../ImageItem'
 
 import './index.css'
 
-const initialLanguageGreetingsList = [
+const languageGreetingsList = [
   {
     id: 'bfdf40eb-eec9-4a66-a493-752fe689f0d0',
     imageUrl:
@@ -32,8 +32,7 @@ const initialLanguageGreetingsList = [
 
 class MultilingualGreetings extends Component {
   state = {
-    languageGreetingsList: initialLanguageGreetingsList,
-    activeLanguageId: initialLanguageGreetingsList[0].id,
+    activeLanguageId: languageGreetingsList[0].id,
   }
 
   setActiveLanguageId = Id => {
@@ -42,27 +41,26 @@ class MultilingualGreetings extends Component {
 
   getActiveTabImages = () => {
     const {activeLanguageId} = this.state
-    const {languageGreetingsList} = this.state
     const filteredList = languageGreetingsList.filter(
-      eachSearchedImage => eachSearchedImage.buttonText === activeLanguageId,
+      eachSearchedImage => eachSearchedImage.id === activeLanguageId,
     )
 
     return filteredList
   }
 
   render() {
-    const {activeLanguageId, languageGreetingsList} = this.state
+    const {activeLanguageId} = this.state
     const filteredList = this.getActiveTabImages()
     return (
       <div className="app-container">
         <h1 className="heading">Multilingual Greetings</h1>
         <ul className="greetings-list">
           {languageGreetingsList.map(eachLanguage => (
-            <GreetingItem
+            <LanguageGreetingsItem
               key={eachLanguage.Id}
               languageDetails={eachLanguage}
               setActiveLanguageId={this.setActiveLanguageId}
-              isActive={activeLanguageId === eachLanguage.Id}
+              isActive={activeLanguageId === eachLanguage.id}
             />
           ))}
         </ul>

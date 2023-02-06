@@ -1,9 +1,8 @@
 .greeting-list-item {
-  margin-right: 16px;
-  margin-bottom: 16px;
+  list-style-type: none;
 }
 
-.greeting {
+.button {
   font-size: 20px;
   padding-left: 40px;
   padding-right: 40px;
@@ -12,13 +11,11 @@
   border: 1px #db1c48 solid;
   border-radius: 20px;
   margin-right: 10px;
+  background-color: transparent;
+  color: #db1c48;
 }
 
 .active {
   background-color: #db1c48;
   color: #ffffff;
-}
-.in-active {
-  color: #db1c48;
-  background-color: #ffffff;
 }
