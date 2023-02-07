@@ -5,9 +5,9 @@ const ImageItem = props => {
   const {imageAltText, imageUrl} = imageDetails
 
   return (
-    <li className="image-item">
+    <div className="image-item">
       <img src={imageUrl} className="image" alt={imageAltText} />
-    </li>
+    </div>
   )
 }
 

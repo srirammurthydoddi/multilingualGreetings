@@ -1,5 +1,5 @@
 .image-item {
-  list-style-type: none;
+  display: flex;
 }
 
 .image {

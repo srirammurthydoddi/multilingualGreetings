@@ -64,11 +64,9 @@ class MultilingualGreetings extends Component {
             />
           ))}
         </ul>
-        <ul className="images-list">
-          {filteredList.map(eachImage => (
-            <ImageItem key={eachImage.Id} imageDetails={eachImage} />
-          ))}
-        </ul>
+        {filteredList.map(eachImage => (
+          <ImageItem key={eachImage.Id} imageDetails={eachImage} />
+        ))}
       </div>
     )
   }
